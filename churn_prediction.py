@@ -13,7 +13,11 @@ from sklearn.metrics import (
 )
 
 # STEP 1: Load and explore data
-df = pd.read_csv("WA_Fn-UseC_-Telco-Customer-Churn.csv")
+import kagglehub
+import os
+
+path = kagglehub.dataset_download("blastchar/telco-customer-churn")
+df = pd.read_csv(os.path.join(path, "WA_Fn-UseC_-Telco-Customer-Churn.csv"))
 
 print("Dataset shape:", df.shape)
 print("\nFirst 5 rows:\n", df.head())
